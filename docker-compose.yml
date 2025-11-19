@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  mse-service:
+    build: .
+    command: ["python", "./src/mse_service.py"]
+
+  mae-service:
+    build: .
+    command: ["python", "./src/mae_service.py"]
+
+  hinge-service:
+    build: .
+    command: ["python", "./src/hinge_service.py"]
