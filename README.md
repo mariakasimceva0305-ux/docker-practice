@@ -1,37 +1,24 @@
-# Docker
+﻿# Docker
 
-Учебный репозиторий по практике Docker на Python-сервисах.
+Educational Docker project with Python services for loss metric calculation.
 
-## Что реализовано
+## Repository Contents
 
-- Базовый образ на `python:3.9-slim` через `Dockerfile`
-- Сборка зависимостей из `requirements.txt`
-- Контейнеризация нескольких скриптов с вычислением функций потерь
-- Оркестрация сервисов через `docker-compose.yml` (`mse-service`, `mae-service`, `hinge-service`)
+- `Dockerfile` - base image and dependency installation.
+- `docker-compose.yml` - multi-service run configuration.
+- `requirements.txt` - Python dependencies.
+- `src/losses.py` - implementations of loss functions.
+- `src/mse_service.py` - service script for Mean Squared Error.
+- `src/mae_service.py` - service script for Mean Absolute Error.
+- `src/hinge_service.py` - service script for Squared Hinge Loss.
+- `src/main.py` - local script for combined metric calculation.
 
-## Что я освоила
+## Implemented Functionality
 
-- Сборка Docker-образа и запуск контейнеров
-- Работа с многосервисной конфигурацией в Docker Compose
-- Разделение логики по сервисам и запуск отдельных команд внутри контейнеров
-- Проверка результатов через логи контейнеров
+The code calculates three metrics on predefined input arrays:
 
-## Структура
+- Mean Squared Error (MSE)
+- Mean Absolute Error (MAE)
+- Squared Hinge Loss
 
-- `Dockerfile` - базовый образ и шаги сборки
-- `docker-compose.yml` - запуск трех сервисов
-- `src/` - код функций потерь и сервисных скриптов
-
-## Быстрый старт
-
-```bash
-docker compose up --build
-```
-
-## Проверка
-
-Ожидается вывод метрик в логах сервисов:
-
-- `mse: ...`
-- `mae: ...`
-- `hinge loss: ...`
+The project runs these calculations in separate containerized services via Docker Compose.
