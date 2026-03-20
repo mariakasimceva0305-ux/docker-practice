@@ -1,24 +1,25 @@
-﻿# Docker
+# docker-practice
 
-Educational Docker project with Python services for loss metric calculation.
+Educational Docker project with Python scripts for loss metric calculation.
 
-## Repository Contents
+## Project Scope
 
-- `Dockerfile` - base image and dependency installation.
-- `docker-compose.yml` - multi-service run configuration.
-- `requirements.txt` - Python dependencies.
-- `src/losses.py` - implementations of loss functions.
-- `src/mse_service.py` - service script for Mean Squared Error.
-- `src/mae_service.py` - service script for Mean Absolute Error.
-- `src/hinge_service.py` - service script for Squared Hinge Loss.
-- `src/main.py` - local script for combined metric calculation.
+Containerized execution of metric calculation scripts using a shared Python environment.
+
+## Repository Structure
+
+- `Dockerfile`
+- `docker-compose.yml`
+- `requirements.txt`
+- `src/losses.py`
+- `src/mse_service.py`
+- `src/mae_service.py`
+- `src/hinge_service.py`
+- `src/main.py`
 
 ## Implemented Functionality
 
-The code calculates three metrics on predefined input arrays:
-
-- Mean Squared Error (MSE)
-- Mean Absolute Error (MAE)
-- Squared Hinge Loss
-
-The project runs these calculations in separate containerized services via Docker Compose.
+- Mean Squared Error calculation
+- Mean Absolute Error calculation
+- Squared Hinge Loss calculation
+- Separate service execution through Docker Compose
