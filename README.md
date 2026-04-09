@@ -1,25 +1,28 @@
-# docker-practice
+# Контейнеризированный набор сервисов для вычисления функций потерь
 
-Educational Docker project with Python scripts for loss metric calculation.
+## Кратко
+Небольшой технический репозиторий, показывающий контейнеризацию независимых Python-сервисов для расчёта MSE, MAE и squared hinge loss через Docker Compose.
 
-## Project Scope
+## Задача
+Показать базовый паттерн разбиения вычислительной логики на независимые контейнеры с общим окружением и воспроизводимым запуском.
 
-Containerized execution of metric calculation scripts using a shared Python environment.
+## Архитектура
+```mermaid
+flowchart TD
+    A[Docker Compose] --> B[MSE service]
+    A --> C[MAE service]
+    A --> D[Hinge service]
+    B --> E[Общий модуль losses.py]
+    C --> E
+    D --> E
+```
 
-## Repository Structure
+## Что показать в README
+- какие функции потерь реализованы;
+- как организован запуск по контейнерам;
+- что код воспроизводимо поднимается в одинаковом окружении.
 
-- `Dockerfile`
-- `docker-compose.yml`
-- `requirements.txt`
-- `src/losses.py`
-- `src/mse_service.py`
-- `src/mae_service.py`
-- `src/hinge_service.py`
-- `src/main.py`
-
-## Implemented Functionality
-
-- Mean Squared Error calculation
-- Mean Absolute Error calculation
-- Squared Hinge Loss calculation
-- Separate service execution through Docker Compose
+## Запуск
+```bash
+docker compose up --build
+```
